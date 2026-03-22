@@ -3,10 +3,11 @@
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
-interface CustomThemeProviderProps
-  extends React.ComponentProps<typeof NextThemesProvider> {
+interface CustomThemeProviderProps extends React.ComponentProps<
+  typeof NextThemesProvider
+> {
   children: React.ReactNode;
- }
+}
 
 export function ThemeProvider({
   children,
@@ -15,13 +16,13 @@ export function ThemeProvider({
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="dark"
-      enableSystem={false}
+      defaultTheme="system"
+      enableSystem
       disableTransitionOnChange
       storageKey="theme"
       {...props}
     >
       {children}
-    </NextThemesProvider> 
+    </NextThemesProvider>
   );
 }
